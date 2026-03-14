@@ -49,7 +49,6 @@
       z-index:5;
     }
 
-    /* LOADER */
     .loader{
       position:fixed;
       inset:0;
@@ -93,7 +92,6 @@
       to{ transform:rotate(360deg); }
     }
 
-    /* STARS */
     .stars{
       position:fixed;
       inset:0;
@@ -117,7 +115,6 @@
       50%{ opacity:1; transform:scale(1.5); }
     }
 
-    /* FLOATING LIGHTS */
     .floating-lights{
       position:fixed;
       inset:0;
@@ -153,7 +150,6 @@
       100%{ transform:translateY(-110vh) scale(1.5); opacity:0; }
     }
 
-    /* BALLOONS */
     .balloons{
       position:fixed;
       inset:0;
@@ -206,7 +202,6 @@
       100%{ transform:translateY(-120vh) rotate(-4deg); opacity:0; }
     }
 
-    /* CONFETTI */
     .confetti{
       position:fixed;
       inset:0;
@@ -229,7 +224,6 @@
       100%{ transform:translateY(110vh) rotate(720deg); }
     }
 
-    /* HERO */
     .hero{
       min-height:100vh;
       display:flex;
@@ -264,10 +258,11 @@
       pointer-events:none;
       z-index:1;
     }
+
     .hero-card > *{
       position:relative;
-      z-index:2;
-  
+      z-index:5;
+    }
 
     .tag{
       display:inline-block;
@@ -286,7 +281,7 @@
 
     .main-title{
       position:relative;
-      z-index:50;
+      z-index:10;
       font-size:clamp(2.3rem,6vw,5.3rem);
       line-height:1.08;
       font-weight:900;
@@ -299,7 +294,7 @@
 
     .glow-name{
       position:relative;
-      z-index:50;
+      z-index:20;
       display:block;
       font-size:clamp(3rem,7vw,6.4rem);
       color:#fff;
@@ -398,7 +393,6 @@
       font-weight:700;
     }
 
-    /* GIFT BOX */
     .gift-overlay{
       position:fixed;
       inset:0;
@@ -532,7 +526,6 @@
       100%{ opacity:0; transform:scale(.8) translateY(-40px); }
     }
 
-    /* COUNTDOWN */
     .section{
       padding:35px 0 60px;
       position:relative;
@@ -583,7 +576,6 @@
       text-transform:uppercase;
     }
 
-    /* MESSAGE */
     .message-card{
       padding:36px 24px;
       border-radius:28px;
@@ -614,7 +606,6 @@
       51%,100%{ opacity:0; }
     }
 
-    /* GALLERY */
     .gallery-grid{
       display:grid;
       grid-template-columns:repeat(4,1fr);
@@ -673,7 +664,6 @@
       backdrop-filter:blur(8px);
     }
 
-    /* LIGHTBOX */
     .lightbox{
       position:fixed;
       inset:0;
@@ -723,7 +713,6 @@
       z-index:2;
     }
 
-    /* PARENTS MESSAGE */
     .parents-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -751,7 +740,6 @@
       font-size:1rem;
     }
 
-    /* SHARE */
     .share-wrap{
       text-align:center;
       margin-top:24px;
@@ -782,7 +770,6 @@
       z-index:5;
     }
 
-    /* FIREWORKS CANVAS */
     #fireworks{
       position:fixed;
       inset:0;
@@ -1074,7 +1061,7 @@
       });
 
       const currentYear = now.getFullYear();
-      let target = new Date(currentYear, 2, 15, 0, 0, 0); // March = 2
+      let target = new Date(currentYear, 2, 15, 0, 0, 0);
 
       if(now > target){
         target = new Date(currentYear + 1, 2, 15, 0, 0, 0);
@@ -1146,7 +1133,6 @@
     document.addEventListener("click", playMusic, { once:true });
     document.addEventListener("touchstart", playMusic, { once:true });
 
-    /* CONFETTI */
     const confetti = document.getElementById("confetti");
     const colors = ["#ffd700", "#ff5ea2", "#56ccf2", "#b06cff", "#ffffff", "#ff9f43"];
 
@@ -1163,7 +1149,6 @@
       confetti.appendChild(piece);
     }
 
-    /* STARS */
     const stars = document.getElementById("stars");
     for(let i = 0; i < 70; i++){
       const s = document.createElement("span");
@@ -1177,7 +1162,6 @@
       stars.appendChild(s);
     }
 
-    /* TYPING MESSAGE */
     const message = `Dear Divyansh, may your life always shine with happiness, health, laughter, and blessings.
 May your smile brighten every home and every heart around you.
 May your journey be protected by love, guided by grace, and filled with beautiful memories.
@@ -1196,7 +1180,6 @@ Today is not just your birthday — it is the celebration of a precious little l
 
     setTimeout(typeMessage, 2200);
 
-    /* LIGHTBOX */
     function openLightbox(src){
       const lightbox = document.getElementById("lightbox");
       const img = document.getElementById("lightboxImage");
@@ -1213,13 +1196,11 @@ Today is not just your birthday — it is the celebration of a precious little l
     window.openLightbox = openLightbox;
     window.closeLightbox = closeLightbox;
 
-    /* WHATSAPP SHARE */
     const whatsappShare = document.getElementById("whatsappShare");
     const shareText = encodeURIComponent("Happy Birthday Divyansh! 🎂✨ See this beautiful birthday website:");
     const pageUrl = encodeURIComponent(window.location.href);
     whatsappShare.href = `https://wa.me/?text=${shareText}%20${pageUrl}`;
 
-    /* FIREWORKS */
     function startFireworks(){
       const canvas = document.getElementById("fireworks");
       const ctx = canvas.getContext("2d");
@@ -1266,11 +1247,11 @@ Today is not just your birthday — it is the celebration of a precious little l
       }
 
       function burst(x, y){
-        const colors = ["#ffd700", "#ff5ea2", "#56ccf2", "#b06cff", "#ffffff", "#ff9f43"];
+        const fireColors = ["#ffd700", "#ff5ea2", "#56ccf2", "#b06cff", "#ffffff", "#ff9f43"];
         for(let i = 0; i < 70; i++){
           const angle = Math.random() * Math.PI * 2;
           const speed = Math.random() * 4 + 1.5;
-          particles.push(new Particle(x, y, colors[Math.floor(Math.random() * colors.length)], angle, speed));
+          particles.push(new Particle(x, y, fireColors[Math.floor(Math.random() * fireColors.length)], angle, speed));
         }
       }
 
